@@ -1,5 +1,7 @@
 # Gau
 
+[![Build and Test](https://github.com/ducminhgd/gau/actions/workflows/main.yml/badge.svg)](https://github.com/ducminhgd/gau/actions/workflows/main.yml)
+
 Gau is the ~Gathered All Ultilities~ nickname of my second son, means "Bear" in English
 
 ## Requirements
