@@ -54,14 +54,12 @@ jobs:
     needs:
       - release-build
     permissions:
+      # Required for trusted publishing to PyPI
       id-token: write
+      contents: read
     environment:
       name: pypi
       url: https://pypi.org/p/gau
-      #
-      # ALTERNATIVE: if your GitHub Release name is the PyPI project version string
-      # ALTERNATIVE: exactly, uncomment the following line instead:
-      # url: https://pypi.org/project/YOURPROJECT/${{ github.event.release.name }}
     steps:
       - name: Retrieve release distributions
         uses: actions/download-artifact@v4
@@ -72,4 +70,6 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: dist/
-
+          verbose: true
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
